@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ACS Verdict Evidence</title>
+<style>
+body { font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+       max-width: 960px; margin: 2rem auto; padding: 0 1rem; color: #1f2328; line-height: 1.55; }
+h1 { border-bottom: 2px solid #d0d7de; padding-bottom: .3rem; }
+h2 { margin-top: 2rem; color: #0a3069; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { border: 1px solid #d0d7de; padding: .45rem .7rem; text-align: left; vertical-align: top; }
+th { background: #f6f8fa; }
+pre { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px;
+      padding: .8rem; overflow-x: auto; font-size: .85rem; }
+.badge { display: inline-block; padding: .1rem .6rem; border-radius: 1em;
+         font-size: .85rem; font-weight: 600; }
+.rejected, .quarantined, .rejected-cell { background: #ffebe9; color: #a40e26; }
+.pass, .none, .verified-cell { background: #dafbe1; color: #116329; }
+.unresolved, .moderate { background: #fff8c5; color: #9a6700; }
+.muted { color: #59636e; font-size: .9rem; }
+</style>
+</head>
+<body>
+<h1>ACS Verdict Evidence</h1>
+<p><span class="badge rejected">verdict: rejected</span> <span class="badge quarantined">quarantined: quarantined</span></p>
+<h2>1. Verdict statement — negative conformance vector</h2>
+<p>A tool-call request that omits request_id; the runner denied it for replay-risk reasons. Witness scope: SELF.</p>
+<table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>vector_id</td><td>70cbcb3d7d7aa44c</td></tr><tr><td>profile</td><td>acs-core</td></tr><tr><td>clause</td><td>§10.3 Replay protection (ACS-Core)</td></tr><tr><td>expected</td><td>{&quot;decision&quot;: &quot;deny&quot;, &quot;reason_codes&quot;: [&quot;missing_request_id&quot;]}</td></tr><tr><td>observed</td><td>{&quot;decision&quot;: &quot;deny&quot;, &quot;reason_codes&quot;: [&quot;missing_request_id&quot;]}</td></tr><tr><td>witness_scope</td><td>SELF</td></tr><tr><td>verification_basis</td><td>wire_transcript</td></tr><tr><td>payload_digest</td><td>6954561a770fdfb969a12d8b7940de2511ce151ca1d95a6ef57b2ad7bec1e171</td></tr></tbody></table>
+<p>integrity.binding: observed hashes are bound only by the runner&#x27;s own DSSE envelope signature; the subject (vector) is bound by the envelope, not by payload_digest</p>
+<h2>2. Quarantine statement — spec-undecided MODIFY composition</h2>
+<table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>vector_id</td><td>01410bfff073d383</td></tr><tr><td>status</td><td>quarantined</td></tr><tr><td>reason</td><td>payload carries a MODIFY redaction request; how an invalid MODIFY composition fails closed (§6.3 wire semantics) is not normatively specified, so this vector cannot be scored</td></tr><tr><td>quarantine_ref</td><td>null</td></tr><tr><td>quarantine_gap</td><td>Normative disposition for an unscoreable MODIFY composition. Distinct from #270, which asks what implementations must do at hooks where DENY is not a legal disposition. No open issue names this gap; this quarantined vector is the evidence it should be filed.</td></tr><tr><td>owner</td><td>originator (accountability transfers to the spec workstream when the gap issue is filed)</td></tr><tr><td>review_by</td><td>2026-11-16</td></tr><tr><td>excluded_from</td><td>formal result until the gap is normatively resolved</td></tr></tbody></table>
+<h2>3. Digests</h2>
+<p>witness_scope_derivation: hosting_operator_id == deployment_operator_id -&gt; SELF</p>
+<table><thead><tr><th>Item</th><th>SHA-256</th></tr></thead><tbody><tr><td>negative vector input_digest</td><td>70cbcb3d7d7aa44cfcb0b319831cf4d5b77e51567dc9b40ecc32261be02bfa2a</td></tr><tr><td>quarantine vector digest</td><td>01410bfff073d3835775373ec63be2418378de41aae00d5e6a508689079abb5f</td></tr><tr><td>verdict payload_digest</td><td>6954561a770fdfb969a12d8b7940de2511ce151ca1d95a6ef57b2ad7bec1e171</td></tr></tbody></table>
+<p>Deterministic: re-running yields identical digests (canonical JSON rule).</p>
+<p class="muted">Generated offline by agent-evidence-kit; no network required.</p>
+</body>
+</html>

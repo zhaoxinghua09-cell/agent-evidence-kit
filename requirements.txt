@@ -1,0 +1,3 @@
+# Runtime dependencies: none.
+# Both modules and the one-click demo run on the Python 3.8+ standard library.
+# Python 3.8+ recommended; tested with CPython 3.13.

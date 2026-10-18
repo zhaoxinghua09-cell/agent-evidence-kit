@@ -1,0 +1,107 @@
+{
+  "verdict": {
+    "_type": "https://in-toto.io/Statement/v1",
+    "subject": [
+      {
+        "name": "acs-conformance-vector:70cbcb3d7d7aa44c",
+        "digest": {
+          "sha256": "70cbcb3d7d7aa44cfcb0b319831cf4d5b77e51567dc9b40ecc32261be02bfa2a"
+        }
+      }
+    ],
+    "predicateType": "https://github.com/GenAI-Security-Project/agent-control-standard/blob/main/docs/predicates/acs-verdict-evidence-v1.md",
+    "predicate": {
+      "vector_id": "70cbcb3d7d7aa44c",
+      "profile": "acs-core",
+      "anchor": "docs/spec/instrument/specification.md#103-replay-protection",
+      "clause": "§10.3 Replay protection (ACS-Core)",
+      "verdict": "rejected",
+      "witness_derivation": {
+        "runner": {
+          "id": "acs-runner@0.1.0-demo",
+          "hosting_operator_id": "acme-demo:operator/deployment-01"
+        },
+        "deployment_operator_id": "acme-demo:operator/deployment-01"
+      },
+      "witness_scope": "SELF",
+      "verification_basis": [
+        "wire_transcript"
+      ],
+      "expected": {
+        "decision": "deny",
+        "reason_codes": [
+          "missing_request_id"
+        ]
+      },
+      "observed": {
+        "decision": "deny",
+        "reason_codes": [
+          "missing_request_id"
+        ]
+      },
+      "behavior_snapshot": {
+        "chain_hash_before": null,
+        "chain_hash_after": null,
+        "runner": "acs-runner@0.1.0-demo",
+        "note": "offline deterministic demo: the runner populates the section 8 rolling chain hashes from the live on-wire responses; none were produced here"
+      },
+      "integrity": {
+        "payload_digest": "6954561a770fdfb969a12d8b7940de2511ce151ca1d95a6ef57b2ad7bec1e171",
+        "payload_digest_method": "sha256 over canonical JSON (sorted keys, compact separators, UTF-8)",
+        "payload_digest_fields": [
+          "anchor",
+          "clause",
+          "expected",
+          "observed",
+          "profile",
+          "vector_id",
+          "verdict",
+          "verification_basis",
+          "witness_derivation",
+          "witness_scope"
+        ],
+        "does_not_cover": [
+          "behavior_snapshot",
+          "integrity",
+          "provenance",
+          "subject"
+        ],
+        "binding": "observed hashes are bound only by the runner's own DSSE envelope signature; the subject (vector) is bound by the envelope, not by payload_digest",
+        "statement": "integrity only: proves the record is intact; not provenance"
+      },
+      "provenance": {
+        "counter_signature": null,
+        "anchor": null,
+        "note": "counter_signature is the only scope lift: lift_state=peer when the pinned key independently checked this requirement (drove its own client against this deployment, or holds the wire transcript and the vector), signer_relationship=peer -> PEER / external -> EXTERNAL; otherwise lift_state=co-signature (non-repudiation only, no lift). anchor (RFC 3161 timestamp or transparency log) proves persistence, not verification; a SELF record carrying one remains SELF."
+      }
+    }
+  },
+  "quarantine": {
+    "_type": "https://in-toto.io/Statement/v1",
+    "subject": [
+      {
+        "name": "acs-conformance-vector:01410bfff073d383",
+        "digest": {
+          "sha256": "01410bfff073d3835775373ec63be2418378de41aae00d5e6a508689079abb5f"
+        }
+      }
+    ],
+    "predicateType": "https://github.com/GenAI-Security-Project/agent-control-standard/blob/main/docs/predicates/acs-verdict-evidence-v1.md",
+    "predicate": {
+      "vector_id": "01410bfff073d383",
+      "status": "quarantined",
+      "reason": "payload carries a MODIFY redaction request; how an invalid MODIFY composition fails closed (§6.3 wire semantics) is not normatively specified, so this vector cannot be scored",
+      "quarantine_ref": null,
+      "quarantine_gap": "Normative disposition for an unscoreable MODIFY composition. Distinct from #270, which asks what implementations must do at hooks where DENY is not a legal disposition. No open issue names this gap; this quarantined vector is the evidence it should be filed.",
+      "owner": "originator (accountability transfers to the spec workstream when the gap issue is filed)",
+      "review_by": "2026-11-16",
+      "excluded_from": "formal result until the gap is normatively resolved"
+    }
+  },
+  "digests": {
+    "negative_vector_input": "70cbcb3d7d7aa44cfcb0b319831cf4d5b77e51567dc9b40ecc32261be02bfa2a",
+    "quarantine_vector_input": "01410bfff073d3835775373ec63be2418378de41aae00d5e6a508689079abb5f",
+    "verdict_payload": "6954561a770fdfb969a12d8b7940de2511ce151ca1d95a6ef57b2ad7bec1e171"
+  },
+  "witness_scope_derivation": "hosting_operator_id == deployment_operator_id -> SELF"
+}

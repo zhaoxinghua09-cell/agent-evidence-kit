@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LGD-Eval Evidence Conclusion / 证据分级结论</title>
+<style>
+body { font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+       max-width: 960px; margin: 2rem auto; padding: 0 1rem; color: #1f2328; line-height: 1.55; }
+h1 { border-bottom: 2px solid #d0d7de; padding-bottom: .3rem; }
+h2 { margin-top: 2rem; color: #0a3069; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { border: 1px solid #d0d7de; padding: .45rem .7rem; text-align: left; vertical-align: top; }
+th { background: #f6f8fa; }
+pre { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px;
+      padding: .8rem; overflow-x: auto; font-size: .85rem; }
+.badge { display: inline-block; padding: .1rem .6rem; border-radius: 1em;
+         font-size: .85rem; font-weight: 600; }
+.rejected, .quarantined, .rejected-cell { background: #ffebe9; color: #a40e26; }
+.pass, .none, .verified-cell { background: #dafbe1; color: #116329; }
+.unresolved, .moderate { background: #fff8c5; color: #9a6700; }
+.muted { color: #59636e; font-size: .9rem; }
+</style>
+</head>
+<body>
+<h1>LGD-Eval Evidence Conclusion / 证据分级结论</h1>
+<h2>Assessment overview / 评估概览</h2>
+<table><thead><tr><th>Field / 字段</th><th>Value / 值</th></tr></thead><tbody><tr><td>Subject / 评估对象</td><td>MedXpert-LLM-Library v1.6 (medical-device compliance assistant) / 示例：医械合规助手</td></tr><tr><td>Evaluator / 评估方</td><td>LGD-Eval</td></tr><tr><td>Timestamp / 时间戳</td><td>2026-10-18T00:10:13Z</td></tr><tr><td>Verdict / 总体判词</td><td>Partially evidenced（部分有据）</td></tr><tr><td>Overall failure class / 总体失败类</td><td>none</td></tr><tr><td>No composite score / 无复合分</td><td>True</td></tr></tbody></table>
+<h2>Domain results / 域级结果</h2>
+<table><thead><tr><th>Domain / 域</th><th>Best grade / 级别</th><th>Failure class / 失败类</th><th>Interpretation / 解读</th><th>Evidence / 证据数</th></tr></thead><tbody><tr><td>D1 · Identity &amp; registration / 身份与注册</td><td>V</td><td><span class="badge none">none</span></td><td>Verified / 确证</td><td>2</td></tr><tr><td>D2 · Trust lifecycle / 信任生命周期</td><td>S</td><td><span class="badge none">none</span></td><td>Strong / 强证据</td><td>1</td></tr><tr><td>D3 · Security &amp; resilience / 安全与韧性</td><td>V</td><td><span class="badge none">none</span></td><td>Verified / 确证</td><td>1</td></tr><tr><td>D4 · Privacy &amp; data governance / 隐私与数据</td><td>L</td><td><span class="badge none">none</span></td><td>Limited / 有限</td><td>1</td></tr><tr><td>D5 · Human oversight &amp; accountability / 人类监督与问责</td><td>S</td><td><span class="badge none">none</span></td><td>Strong / 强证据</td><td>1</td></tr><tr><td>D6 · Interoperability / 互操作性</td><td>S</td><td><span class="badge none">none</span></td><td>Strong / 强证据</td><td>1</td></tr></tbody></table>
+<p>Badge colors: quarantined/rejected = red, unresolved = yellow, none = green（徽章配色：隔离/拒绝=红，未决=黄，无失败=绿）。</p>
+<h2>Authorization validity / 授权有效性</h2>
+<table><thead><tr><th>Field / 字段</th><th>Value / 值</th></tr></thead><tbody><tr><td>Result / 结果</td><td>verified</td></tr><tr><td>Reason / 原因</td><td>issuer listed in authoritative scope registry for this credential profile and claim type</td></tr><tr><td>Relying-party action / 依赖方动作</td><td>proceed per normal policy</td></tr></tbody></table>
+<h2>Reproducibility / 可复现</h2>
+<p>Payload digest（covers domains + authorization / 覆盖域结果与授权维度）:</p>
+<pre><code>106e64ae1534df82</code></pre>
+<p>Bias controls / 偏倚控制: multi-judge（多裁判）; human anchoring（人类锚定）; AB/BA ordering（顺序轮换）; inter-rater agreement kappa（裁判一致性）; no self-review（不自查原则）</p>
+<p class="muted">Generated offline by agent-evidence-kit; no network required.</p>
+</body>
+</html>

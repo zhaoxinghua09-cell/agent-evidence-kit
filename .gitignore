@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+Thumbs.db
+# Demo runs regenerate reports/ on every run; keep the sample files but ignore local reruns.
+reports/*.tmp
+reports/*.log
