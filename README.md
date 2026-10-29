@@ -190,6 +190,10 @@ agent-evidence-kit/
 
 一条被支持的 ACS 判定，意味着固定密钥签署的正是这些字节、所声明的摘要字段可重算一致；它**不**证明评估真的执行过、观测到的哈希为真、或时间戳能证明独立性。predicate 草稿（`docs/`）显式写出这条边界。分级器则刻意**不计算复合分**：六个域各自独立分级（V/S/M/L/P）、各带失败类，总体失败类取最严重者。
 
+## Examples
+
+- [`examples/themes13-receiver-oracle/`](examples/themes13-receiver-oracle/) — a machine-checked instance of the receiver-visible evidence field set proposed in FG-TIDA/themes#13. Run `python demo_receiver_evidence.py` in that directory; see its README for checks, negative controls and stated limits.
+
 ### 许可
 
 Apache-2.0，见 `LICENSE`。
