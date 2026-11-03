@@ -1,0 +1,15 @@
+# agent-evidence-kit
+
+> **Runnable reference implementations of two evidence-recording tools for agentic-AI governance: an ACS conformance verdict record (in-toto Statement v1) and an 
+
+## Repository
+
+- agent-evidence-kit: https://github.com/zhaoxinghua09-cell/agent-evidence-kit (**Runnable reference implementations of two evidence-recording tools for agentic-AI governance: an ACS conformance verdict record (in-toto Statement v1) and an )
+
+## Ecosystem / 生态
+
+- awesome-trusted-agents: https://github.com/zhaoxinghua09-cell/awesome-trusted-agents
+- lgd-hub: https://github.com/zhaoxinghua09-cell/lgd-hub
+- lgd-skill-marketplace: https://github.com/zhaoxinghua09-cell/lgd-skill-marketplace
+- governanceos: https://github.com/zhaoxinghua09-cell/governanceos
+- skillgate: https://github.com/zhaoxinghua09-cell/skillgate
